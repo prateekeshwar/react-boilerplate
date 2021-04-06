@@ -22,8 +22,9 @@ module.exports = {
     path: path.resolve(__dirname, '..', './dist'),
     filename: 'bundle.js',
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin()],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, '..', './src/index.html'),
+      }), new CleanWebpackPlugin()],
   devServer: {
     contentBase: path.resolve(__dirname, '..', './dist'),
     hot: true,
